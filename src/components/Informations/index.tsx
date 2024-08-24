@@ -18,7 +18,7 @@ export default function Informacoes() {
         <S.ContentContainer>
           <S.ServiceBox>
             <S.TextBox>
-              <h2>Desenvolvimento de Software Personalizado</h2>
+              <h2>Desenvolver seu Software Personalizado</h2>
               <p>Construímos soluções de software sob medida que atendem às necessidades e desafios únicos do seu negócio.</p>
             </S.TextBox>
             <S.TextBox>
@@ -26,7 +26,7 @@ export default function Informacoes() {
               <p>Criamos sua loja online para você fazer suas primeiras vendas</p>
             </S.TextBox>
             <S.TextBox>
-              <h2>Desenvolvimento de Aplicativos</h2>
+              <h2>Desenvolver seu próprio Aplicativo</h2>
               <p>Desenvolvemos seu aplicativo para alcançar seus clientes do jeito que voce imaginou.</p>
             </S.TextBox>
           </S.ServiceBox>

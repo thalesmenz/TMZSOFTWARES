@@ -19,9 +19,9 @@ export default function Testemonials() {
         />
         <TestemonialCard
           // imageURL="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRJpevBOQMgZ-Gaeb54y2Tin-o5vsoOtYW2nYtCpzkYqtj6ENWsHD4d1Bv-AUymOggA"
-          name="João Silva"
-          position="Gerente de Tecnologia - Ander Robotics"
-          testimonial="Trabalhar com a TMZ SOFTWARE tem sido uma experiência excepcional. Desde o início, a equipe demonstrou um profundo entendimento das nossas necessidades e apresentou soluções inovadoras que superaram nossas expectativas. A qualidade do trabalho entregue, aliada à sua pontualidade e profissionalismo, tem sido um diferencial significativo para o sucesso dos nossos projetos. Sem dúvida, a TMZ SOFTWARE se tornou um parceiro de confiança e essencial para o nosso crescimento."
+          name="Alan Cerqueira"
+          position="Tech Lead - Finanto"
+          testimonial="Trabalhar com a TMZ SOFTWARE foi uma experiência extraordinária. Compreendeu nossas necessidades e nos ofereceu soluções inovadoras que superaram todas as nossas expectativas. A qualidade do trabalho, combinada com a entrega pontual e o profissionalismo, foi um diferencial significativo para o sucesso do nosso projeto. A TMZ SOFTWARE é um parceiro confiável e essencial para qualquer negócio que busca crescimento através de soluções tecnológicas de ponta."
         />
       </S.TestimonialsContainer>
     </S.Container>

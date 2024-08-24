@@ -10,7 +10,7 @@ export default function Apresentation({ OpenWhatsApp }: any) {
         <S.Container>
             <S.Content>
                 <S.TextContainer>
-                    <S.Title>Transforme Suas Ideias em Lucro Online!</S.Title>
+                    <S.Title>Comece a lucrar agora com seu software!</S.Title>
                     <S.Subtitle>Você já pensou em tirar suas ideias do papel por um preço que cabe no seu bolso? Chegou a hora de finalmente começar a lucrar online!</S.Subtitle>
                     <Button onClick={OpenWhatsApp}>Entrar em contato</Button>
                 </S.TextContainer>
