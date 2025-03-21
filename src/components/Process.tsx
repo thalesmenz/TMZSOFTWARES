@@ -1,7 +1,7 @@
 
 import { cn } from '@/lib/utils';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { Check, ChevronRight } from 'lucide-react';
+import { ArrowRight, Check, ChevronRight, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface ProcessStepProps {
@@ -23,22 +23,44 @@ const ProcessStep = ({ number, title, description, delay = 0 }: ProcessStepProps
       )}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <Card className="w-full border-0 shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-        <CardContent className="p-0">
-          <div className="flex flex-col md:flex-row">
-            <div className="bg-gradient-to-br from-amber-50 to-orange-100 p-6 md:w-32 flex items-center justify-center">
-              <div className="text-4xl font-bold text-amber-500">{number}</div>
-            </div>
-            <div className="p-6 flex-1">
-              <h3 className="text-xl font-semibold mb-2 flex items-center text-gray-800">
-                {title}
-                <span className="ml-2 text-amber-500">
-                  <Check className="h-5 w-5 inline" />
-                </span>
-              </h3>
-              <p className="text-gray-600">{description}</p>
-            </div>
+      <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-amber-100 flex-1">
+        <div className="absolute -right-4 -top-4 bg-gradient-to-br from-amber-400 to-amber-500 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl transform rotate-12 group-hover:scale-110 transition-transform">
+          {number}
+        </div>
+        
+        <div className="pt-8 pb-6 px-6">
+          <h3 className="text-xl font-semibold mb-3 text-gray-800 group-hover:text-amber-600 transition-colors flex items-center">
+            {title}
+            <ArrowRight className="h-4 w-4 ml-2 text-amber-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+          </h3>
+          <p className="text-gray-600">{description}</p>
+        </div>
+        
+        <div className="h-1.5 w-full bg-gradient-to-r from-amber-300 to-amber-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+      </div>
+    </div>
+  );
+};
+
+const MetricCard = ({ icon: Icon, value, label, delay = 0 }) => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.2 });
+  
+  return (
+    <div 
+      ref={ref}
+      className={cn(
+        "transform transition-all duration-700",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+      )}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 h-full">
+        <CardContent className="p-6 flex flex-col items-center">
+          <div className="p-3 rounded-full bg-amber-50 text-amber-500 mb-4">
+            <Icon className="h-6 w-6" />
           </div>
+          <div className="text-3xl font-bold text-gray-800 mb-1">{value}</div>
+          <div className="text-sm text-gray-500 text-center">{label}</div>
         </CardContent>
       </Card>
     </div>
@@ -47,33 +69,44 @@ const ProcessStep = ({ number, title, description, delay = 0 }: ProcessStepProps
 
 const Process = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollReveal({ threshold: 0.1 });
-  const { ref: statsRef, isVisible: statsVisible } = useScrollReveal({ threshold: 0.2 });
+  const { ref: subtitleRef, isVisible: subtitleVisible } = useScrollReveal({ threshold: 0.1 });
   
   return (
-    <section id="process" className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-amber-50">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(251,191,36,0.05),transparent)] pointer-events-none"></div>
+    <section id="process" className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-white to-amber-50/50 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.03),transparent)] pointer-events-none"></div>
       
-      <div className="section-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div 
           ref={titleRef}
           className={cn(
-            "max-w-3xl mx-auto text-center mb-16 transition-all duration-700 transform",
+            "max-w-3xl mx-auto text-center mb-4 transition-all duration-700 transform",
             titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <div className="badge bg-amber-500 bg-opacity-10 text-amber-600 mb-4">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-amber-50 text-amber-600 text-sm font-medium mb-4">
             Nossa Metodologia
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Um processo <span className="text-amber-500">simplificado</span> para resultados extraordinários
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            Um processo <span className="text-amber-500">inteligente</span> para maximizar seu ROI
           </h2>
-          <p className="text-lg text-gray-600">
-            Nossa abordagem é focada em entregar valor rapidamente, com transparência e qualidade em cada etapa, 
-            maximizando o retorno sobre investimento do seu software.
+        </div>
+        
+        <div 
+          ref={subtitleRef}
+          className={cn(
+            "max-w-2xl mx-auto text-center mb-16 transition-all duration-700 transform",
+            subtitleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+          )}
+          style={{ transitionDelay: "100ms" }}
+        >
+          <p className="text-gray-600">
+            Nossa abordagem única é construída para entregar valor rapidamente e garantir 
+            que cada investimento em tecnologia produza resultados financeiros mensuráveis.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
           <ProcessStep 
             number="01"
             title="Análise Estratégica de Negócio"
@@ -103,39 +136,43 @@ const Process = () => {
           />
         </div>
         
-        <div 
-          ref={statsRef}
-          className={cn(
-            "mt-16 max-w-3xl mx-auto bg-white rounded-2xl shadow-xl border border-amber-100 p-8 relative transform transition-all duration-700",
-            statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}
-        >
-          <div className="absolute -inset-1 bg-gradient-to-r from-amber-100 to-orange-100 opacity-50 rounded-2xl blur-sm -z-10"></div>
-          <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">Resultados Comprovados</h3>
+        <div className="relative">
+          <div className="absolute inset-x-0 -top-12 h-40 bg-gradient-to-b from-transparent to-white/80 pointer-events-none"></div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-amber-500 mb-2">
-                <ChevronRight className="w-6 h-6 inline-block" />
-              </div>
-              <div className="text-4xl font-bold text-gray-800 mb-2">35%</div>
-              <div className="text-sm text-gray-600">Redução média de custos operacionais</div>
+          <div className="relative z-10 bg-white rounded-2xl p-8 shadow-xl border border-amber-100">
+            <div className="text-center mb-10">
+              <h3 className="text-2xl font-bold text-gray-800">Impacto Comprovado</h3>
+              <div className="mt-2 w-20 h-1 bg-amber-500 mx-auto"></div>
             </div>
             
-            <div className="text-center">
-              <div className="text-amber-500 mb-2">
-                <ChevronRight className="w-6 h-6 inline-block" />
-              </div>
-              <div className="text-4xl font-bold text-gray-800 mb-2">58%</div>
-              <div className="text-sm text-gray-600">Aumento médio de produtividade</div>
-            </div>
-            
-            <div className="text-center">
-              <div className="text-amber-500 mb-2">
-                <ChevronRight className="w-6 h-6 inline-block" />
-              </div>
-              <div className="text-4xl font-bold text-gray-800 mb-2">210%</div>
-              <div className="text-sm text-gray-600">ROI médio no primeiro ano</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <MetricCard 
+                icon={TrendingUp} 
+                value="210%" 
+                label="Retorno Médio sobre Investimento (ROI)"
+                delay={100}
+              />
+              
+              <MetricCard 
+                icon={Check} 
+                value="35%" 
+                label="Redução nos Custos Operacionais"
+                delay={200}
+              />
+              
+              <MetricCard 
+                icon={ChevronRight} 
+                value="58%" 
+                label="Aumento em Produtividade"
+                delay={300}
+              />
+              
+              <MetricCard 
+                icon={ChevronRight} 
+                value="3x" 
+                label="Aceleração no Tempo de Lançamento"
+                delay={400}
+              />
             </div>
           </div>
         </div>
