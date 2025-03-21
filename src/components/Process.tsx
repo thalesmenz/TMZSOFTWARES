@@ -23,20 +23,20 @@ const ProcessStep = ({ number, title, description, delay = 0 }: ProcessStepProps
       )}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-amber-100 flex-1">
-        <div className="absolute -right-4 -top-4 bg-gradient-to-br from-amber-400 to-amber-500 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl transform rotate-12 group-hover:scale-110 transition-transform">
+      <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-sky-100 flex-1">
+        <div className="absolute -right-4 -top-4 bg-gradient-to-br from-tmz-blue to-tmz-lightBlue w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl transform rotate-12 group-hover:scale-110 transition-transform">
           {number}
         </div>
         
         <div className="pt-8 pb-6 px-6">
-          <h3 className="text-xl font-semibold mb-3 text-gray-800 group-hover:text-amber-600 transition-colors flex items-center">
+          <h3 className="text-xl font-semibold mb-3 text-gray-800 group-hover:text-tmz-blue transition-colors flex items-center">
             {title}
-            <ArrowRight className="h-4 w-4 ml-2 text-amber-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+            <ArrowRight className="h-4 w-4 ml-2 text-tmz-blue opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
           </h3>
           <p className="text-gray-600">{description}</p>
         </div>
         
-        <div className="h-1.5 w-full bg-gradient-to-r from-amber-300 to-amber-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+        <div className="h-1.5 w-full bg-gradient-to-r from-tmz-lightBlue to-tmz-blue transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
       </div>
     </div>
   );
@@ -56,7 +56,7 @@ const MetricCard = ({ icon: Icon, value, label, delay = 0 }) => {
     >
       <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300 h-full">
         <CardContent className="p-6 flex flex-col items-center">
-          <div className="p-3 rounded-full bg-amber-50 text-amber-500 mb-4">
+          <div className="p-3 rounded-full bg-sky-50 text-tmz-blue mb-4">
             <Icon className="h-6 w-6" />
           </div>
           <div className="text-3xl font-bold text-gray-800 mb-1">{value}</div>
@@ -73,8 +73,8 @@ const Process = () => {
   
   return (
     <section id="process" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-white to-amber-50/50 pointer-events-none"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.03),transparent)] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white to-sky-50/50 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(14,165,233,0.03),transparent)] pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div 
@@ -84,11 +84,11 @@ const Process = () => {
             titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <div className="inline-block px-4 py-1.5 rounded-full bg-amber-50 text-amber-600 text-sm font-medium mb-4">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-sky-50 text-tmz-blue text-sm font-medium mb-4">
             Nossa Metodologia
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-            Um processo <span className="text-amber-500">inteligente</span> para maximizar seu ROI
+            Um processo <span className="text-tmz-blue">inteligente</span> para maximizar seu ROI
           </h2>
         </div>
         
@@ -139,10 +139,10 @@ const Process = () => {
         <div className="relative">
           <div className="absolute inset-x-0 -top-12 h-40 bg-gradient-to-b from-transparent to-white/80 pointer-events-none"></div>
           
-          <div className="relative z-10 bg-white rounded-2xl p-8 shadow-xl border border-amber-100">
+          <div className="relative z-10 bg-white rounded-2xl p-8 shadow-xl border border-sky-100">
             <div className="text-center mb-10">
               <h3 className="text-2xl font-bold text-gray-800">Impacto Comprovado</h3>
-              <div className="mt-2 w-20 h-1 bg-amber-500 mx-auto"></div>
+              <div className="mt-2 w-20 h-1 bg-tmz-blue mx-auto"></div>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
