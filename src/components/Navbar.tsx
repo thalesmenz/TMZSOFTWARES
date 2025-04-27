@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -47,6 +46,9 @@ const Navbar = () => {
             <a href="#testimonials" className="text-gray-700 hover:text-tmz-blue transition-colors font-medium">
               Depoimentos
             </a>
+            <a href="/consultoria" className="text-gray-700 hover:text-tmz-blue transition-colors font-medium">
+              Consultoria
+            </a>
             <Button 
               asChild 
               className="bg-tmz-blue hover:bg-tmz-lightBlue text-white rounded-full px-6 transition-all duration-300"
@@ -93,6 +95,13 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Depoimentos
+            </a>
+            <a 
+              href="/consultoria" 
+              className="text-gray-700 hover:text-tmz-blue transition-colors font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Consultoria
             </a>
             <Button 
               asChild 
